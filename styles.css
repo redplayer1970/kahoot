@@ -1,15 +1,185 @@
-body{
-    background: linear-gradient(to right, blue, white, red);
-}
-
-a:link
-{
-    font-weight:normal;
-    text-decoration:none;
-    color: black;
-}
-
-nav a{
-    margin-left: 50px;
-    font-size: 1.2em;
-}
+body {
+      background-color: #121212;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .game-section {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .game-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .chips {
+      display: flex;
+      gap: 10px;
+      margin: 8px 0;
+      flex-wrap: wrap;
+    }
+    .chip {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #fff;
+      color: #111;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 5px 10px #000;
+    }
+    button {
+      background-color: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px 16px;
+      margin-top: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .slot-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      font-size: 50px;
+      margin: 12px 0;
+      position: relative;
+      overflow: hidden;
+      height: 60px;
+      align-items: center;
+    }
+    .reel {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .roulette-wheel {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: conic-gradient(
+        red 0deg 18deg,
+        black 18deg 36deg,
+        red 36deg 54deg,
+        black 54deg 72deg,
+        red 72deg 90deg,
+        black 90deg 108deg,
+        red 108deg 126deg,
+        black 126deg 144deg,
+        red 144deg 162deg,
+        black 162deg 180deg,
+        red 180deg 198deg,
+        black 198deg 216deg,
+        red 216deg 234deg,
+        black 234deg 252deg,
+        red 252deg 270deg,
+        black 270deg 288deg,
+        red 288deg 306deg,
+        black 306deg 324deg,
+        red 324deg 342deg,
+        black 342deg 360deg
+      );
+      margin: 0 auto 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+    }
+    .roulette-center {
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .roulette-table {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .roulette-number {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .red { background-color: red; }
+    .black { background-color: black; }
+    .green { background-color: green; }
+    .spin-roulette {
+      animation: spin 2s linear;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(720deg); }
+    }
+    .btn-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .hand-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .hand {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px;
+      border-radius: 10px;
+      min-height: 120px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin: 0 8px;
+    }
+    .hand h3 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .cards {
+      display: flex;
+      gap: 8px;
+    }
+    .card {
+      width: 64px;
+      height: 88px;
+      border-radius: 8px;
+      background: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      box-shadow: 0 4px 6px rgba(2, 6, 23, 0.4);
+    }
+    .card.back {
+      background: linear-gradient(135deg, #0b2b2b, #0f1724);
+      color: transparent;
+    }
+    .small { font-size: 12px; margin-left: 6px; }
+    .inline-info { margin-left: 12px; font-weight: 600; }
+    figure{
+      display: inline-flex;
+    }

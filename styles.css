@@ -1,185 +1,228 @@
-body {
+* { 
+    margin-bottom: 0.75px;}
+    body {
       background-color: #121212;
       color: white;
       font-family: Arial, sans-serif;
-      padding: 20px;
+      padding: 0;
+      margin: 0;
     }
+    .header {
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      margin: 0 0 15px 0;
+      font-size: 48px;
+      font-weight: bold;
+      background: linear-gradient(45deg, #00aaff, #ffffff, #00aaff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .balance-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      font-size: 20px;
+      flex-wrap: wrap;
+    }
+    .balance-amount {
+      background: rgba(255, 204, 0, 0.1);
+      padding: 5px 20px;
+      border-radius: 8px;
+      border: 2px solid #ffcc00;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+    }
+    .save-indicator {
+      font-size: 12px;
+      color: #4caf50;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .save-indicator.show {
+      opacity: 1;
+    }
+    .main-content { padding: 0 20px 20px 20px; }
     .game-section {
       background-color: #1e1e1e;
       border-radius: 10px;
       padding: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 75px;
+      margin-top: 75px;
     }
-    .game-title {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 20px;
+    .game-title { text-align: center; 
+        font-size: 24px; 
+        margin-bottom: 20px; 
     }
-    .chips {
-      display: flex;
-      gap: 10px;
-      margin: 8px 0;
-      flex-wrap: wrap;
-    }
+    .chips { display: flex;
+         gap: 10px;
+          margin: 8px 0;
+           flex-wrap: wrap; 
+        }
     .chip {
-      width: 50px;
-      height: 50px;
+      width: 50px; 
+      height: 50px; 
       border-radius: 50%;
-      background: #fff;
-      color: #111;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
+      background: #fff; 
+      color: #111; font-weight: bold;
+      display: flex; align-items: center; 
       justify-content: center;
-      cursor: pointer;
+      cursor: pointer; 
       box-shadow: 0 5px 10px #000;
     }
+    .chip:hover { transform: scale(1.1); 
+        box-shadow: 0 7px 15px #000; 
+    }
     button {
-      background-color: #ffcc00;
-      color: black;
-      border: none;
-      padding: 10px 16px;
-      margin-top: 10px;
+      background-color: #ffcc00; color: black; border: none;
+      padding: 10px 16px; 
+      margin-top: 10px; 
       border-radius: 6px;
-      font-weight: bold;
+      font-weight: bold; 
       cursor: pointer;
     }
+    button:hover { background-color: #ffd700; }
+    button:disabled { opacity: 0.5; 
+        cursor: not-allowed; }
+    .allin-btn { background-color: #ff4444;
+         color: white; 
+         margin: 10px 0; 
+        }
+    .allin-btn:hover { background-color: #ff6666; }
     .slot-container {
-      display: flex;
-      justify-content: center;
+      display: flex; 
+      justify-content: center; 
       gap: 10px;
-      font-size: 50px;
-      margin: 12px 0;
-      position: relative;
+      font-size: 50px; 
+      margin: 12px 0; 
+      height: 80px; 
+      align-items: center;
+    }
+    .reel { 
+      width: 80px; height: 80px; 
+      display: flex; align-items: center; 
+      justify-content: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 2px solid rgba(255, 204, 0, 0.3);
       overflow: hidden;
-      height: 60px;
-      align-items: center;
-    }
-    .reel {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .roulette-wheel {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: conic-gradient(
-        red 0deg 18deg,
-        black 18deg 36deg,
-        red 36deg 54deg,
-        black 54deg 72deg,
-        red 72deg 90deg,
-        black 90deg 108deg,
-        red 108deg 126deg,
-        black 126deg 144deg,
-        red 144deg 162deg,
-        black 162deg 180deg,
-        red 180deg 198deg,
-        black 198deg 216deg,
-        red 216deg 234deg,
-        black 234deg 252deg,
-        red 252deg 270deg,
-        black 270deg 288deg,
-        red 288deg 306deg,
-        black 306deg 324deg,
-        red 324deg 342deg,
-        black 342deg 360deg
-      );
-      margin: 0 auto 20px;
       position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
+    }
+    .reel-content {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+    }
+
+      @keyframes reelSpin {
+        from { transform: translateY(-400px); }
+        to { transform: translateY(0); }
+      }
+
+.spinning {
+  display: inline-block;
+  animation: reelSpin 0.2s linear infinite;
+  will-change: transform;
+}
+
+
+    .roulette-wheel {
+      width: 200px; height: 200px; 
+      border-radius: 50%;
+      background: conic-gradient(red 0deg 18deg, black 18deg 36deg, red 36deg 54deg, black 54deg 72deg, red 72deg 90deg, black 90deg 108deg, red 108deg 126deg, black 126deg 144deg, red 144deg 162deg, black 162deg 180deg, red 180deg 198deg, black 198deg 216deg, red 216deg 234deg, black 234deg 252deg, red 252deg 270deg, black 270deg 288deg, red 288deg 306deg, black 306deg 324deg, red 324deg 342deg, black 342deg 360deg);
+      margin: 0 auto 20px; 
+      position: relative;
+      display: flex; 
+      align-items: center; 
+      justify-content: 
+      center; font-size: 30px;
     }
     .roulette-center {
-      width: 50px;
-      height: 50px;
-      background-color: #333;
+      width: 50px; height: 50px; 
+      background-color: #333; 
       border-radius: 50%;
-      display: flex;
-      align-items: center;
+      display: flex; 
+      align-items: center; 
       justify-content: center;
     }
     .roulette-table {
-      display: flex;
-      justify-content: center;
-      gap: 5px;
-      margin: 20px 0;
+      display: flex; 
+      justify-content: center; 
+      gap: 5px; 
+      margin: 20px 0; 
       flex-wrap: wrap;
     }
     .roulette-number {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
+      width: 40px; height: 40px; 
+      display: flex; 
+      align-items: center; 
       justify-content: center;
-      border-radius: 5px;
-      font-weight: bold;
+      border-radius: 5px; 
+      font-weight: bold; 
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .roulette-number:hover { transform: scale(1.15); 
+        box-shadow: 0 0 15px rgba(255, 204, 0, 0.6); 
+    }
+    .roulette-number.selected { box-shadow: 0 0 20px #ffcc00; 
+        border: 3px solid #ffcc00; 
     }
     .red { background-color: red; }
     .black { background-color: black; }
     .green { background-color: green; }
-    .spin-roulette {
-      animation: spin 2s linear;
+    .spin-roulette { animation: spin 2s linear; }
+
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(720deg); } }
+    .btn-row { display: flex; 
+        gap: 8px; 
+        margin-top: 10px; 
+        flex-wrap: wrap;
+        margin-bottom: 10px;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(720deg); }
-    }
-    .btn-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-    .hand-row {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 12px;
+    .hand-row { display: flex; 
+        gap: 16px; 
+        margin-bottom: 12px; 
+        flex-wrap: wrap; 
     }
     .hand {
-      background: rgba(255, 255, 255, 0.03);
-      padding: 12px;
+      background: rgba(255, 255, 255, 0.03); 
+      padding: 12px; 
       border-radius: 10px;
-      min-height: 120px;
-      flex: 1;
-      display: flex;
+      min-height: 120px; 
+      flex: 1; 
+      display: flex; 
       flex-direction: column;
-      align-items: center;
+      align-items: center; 
       gap: 8px;
-      margin: 0 8px;
     }
-    .hand h3 {
-      margin: 0;
-      font-weight: 600;
-      font-size: 14px;
+    .hand h3 { margin: 0; 
+        font-weight: 600; 
+        font-size: 14px; 
     }
-    .cards {
-      display: flex;
-      gap: 8px;
+    .cards { display: flex; 
+        gap: 8px; 
+        flex-wrap: wrap; 
+        justify-content: center; 
     }
     .card {
-      width: 64px;
-      height: 88px;
+      width: 64px; 
+      height: 88px; 
       border-radius: 8px;
-      background: white;
-      color: black;
+      background: white; 
+      color: black; 
       display: flex;
-      align-items: center;
-      justify-content: center;
+      align-items: center; 
+      justify-content: center; 
       font-weight: 700;
-      box-shadow: 0 4px 6px rgba(2, 6, 23, 0.4);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
     }
-    .card.back {
-      background: linear-gradient(135deg, #0b2b2b, #0f1724);
-      color: transparent;
-    }
+    .card.back { background: linear-gradient(135deg, #0b2b2b, #0f1724); color: transparent; }
     .small { font-size: 12px; margin-left: 6px; }
-    .inline-info { margin-left: 12px; font-weight: 600; }
-    figure{
-      display: inline-flex;
-    }
